@@ -7,7 +7,7 @@ permalink:  plantopedia_your_plant_guide_when_you_need_it
 
 I wanted to do something ambitious for my first project. 
 
-So I turned to my spouse and shared with them the requirement for the project. They came up with several ideas but we landed on an app that would look up plant information. As gardeners, we both could use something that can look up plant data in a snap.
+So I turned to my spouse and shared with them the requirement for the project. They came up with several ideas from which I picked an app that would look up plant information. As a gardener, it would be helpful for them to have something that can look up plant care data in a snap. I set out to do just that.
 
 I looked up public APIs that might have the kind of data that I was looking for and ran into [Trefle](http://https://trefle.io/). Trefle is an API that takes data from botanical gardens and other sources, presenting them in a RESTful JSON format. I reached out to the developers of the API and they were kind enough to offer code samples that would help integrate the API into my app. 
 
@@ -27,4 +27,4 @@ The CLI is also where I wrote the methods to initiate the getting of data and in
 
 Finally, I used a ruby gem Colorize to make the interface more readable. With my spouse's design acumen, we were able to select colors for each string that made it really pop and easy to read. 
 
-I learned so much about the separation of concerns and how to write clean, dry code from this project. I also learned just how critical collaboration is in software development. I would not have been able to build this alone without the support of my instructor, classmates or my spouse. I look forward to collaborating with them further to build bigger and better projects in the future. 
+I learned so much about the separation of concerns and how to write clean, dry code from this project. I also learned just how critical collaboration is in software development. I would not have been able to build this alone without the support of my spouse, instructor or classmates. I look forward to collaborating with them further to build bigger and better projects in the future. 
