@@ -1,0 +1,21 @@
+---
+layout: post
+title:      "Separating Concerns or Keeping Track of Who is Doing What"
+date:       2021-03-05 02:24:37 +0000
+permalink:  separating_concerns_or_keeping_track_of_who_is_doing_what
+---
+
+
+
+
+For my capstone, I built one in a series of apps to help the hotline coordinators at the North Texas Abortion Support Network better coordinate their volunteer drivers to assist clients with getting rides to their appointments. NTXASN is a mutual aid program run by my spouse that helps people get connected to the logistical resources necessary to exercise their right to choose. Living in Texas, there are many barriers that keep people from accessing the care that they need. While technology cannot remove all of these barriers, it can help make sharing resources and getting connected with people more efficient. I wanted to partner with my spouse to leverage my newly acquired tech skills to help level the playing field. They helped me think through the initial feature set and the relationships between users and rides. 
+
+Getting started was difficult. I spent the first 3 days spinning my wheels trying to figure out how to get a Rails backend to allow sessions with a React front end. I was pointed to a very helpful video series by Howard, an instructor at Flatiron, that showed me how to go about doing this. I needed to configure my rails API to allows sessions by changing the cors.rb file to include credentials:true. I also needed to include ActionController::Cookies in the Application Controller because the api flag in rails new excludes this module from the controller. Cookies are necessary for session based authentication. Finally, I needed to change my application.rb file to include ActionDispatch middleware so which allows rails to store cookies. Then it was just a matter of writing the sessions controller like one would on a fully fledged Rails app. 
+
+With the backend configured, I turned my attention to building my front end. Understanding the way Redux supplies data to the React components was confusing at first but watching Howard build the app really helped improve my understanding. When we say mapStateToProps we are saying, “Take the state as defined in Redux and give it to the properties that you can then pass into the component to display to the user.” We can call this slice of state anything we want but we want to make sure that the variable name makes sense to make it easier for other devs to read and understand how the data is being manipulated. This is what initially confused me because I did not understand that we were declaring a variable like any other that points to a specific value in memory. 
+
+When we say mapDispatchToProps we are saying “Take the actions we can send to the store (in order to manipulate the store) and make it available to this component by passing it as a property.” This allows the component to fire actions that change Redux state. This makes our app dynamic and responsive as each time we update state in Redux, we update the data displayed within the component.
+
+Abstracting this level of logic out of the components made it incredibly easy for me to style and change the components. Since I didn’t need to worry about each component managing its own state or keep track how my application state was changing across components from within the components themselves, I was able to take material UI templates and configure them to hold the values from Redux state. What took me a week to build from scratch, took me just a night too refactor to include the styling I wanted. It is incredible how this design pattern makes it easy to maintain and extend the front end. No wonder so many devs use it! 
+
+Redux is to Models in Rails as React is to the views. It is the application logic that powers the front end. By separating concerns, I can keep my code dry and easy to debug. Having everything in its place allows use to build increasingly complex systems without losing track of who is doing what or how data is being changed. Ensuring that all of my application data is one place gives me one source of truth that I can reference and makes the presentational components interchangeable.  It gives us a frame of reference so that we can compile within our own minds how the application functions, giving us greater control over what we are writing. 
